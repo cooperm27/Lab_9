@@ -45,10 +45,12 @@ public class CoderMikesGrocery {
 	} playAgain = Validator.playAgain(scnr, "Would you like to order anything else?");
 	}while (playAgain);
 	scnr.close();
+	if (menuChoices.size() == 0) {
+		System.out.println("get out of my store then freeloader");
+	} else {
 	System.out.println("Thanks for your order!");
 	System.out.println("Here's what you got");
 	System.out.println();
-	
 	for (int i = 0; i < menuChoices.size(); i++) {
 	System.out.printf("%-11s%-1s%-11s\n", menuChoices.get(i),"$",price.get(i));
 	}
@@ -58,7 +60,7 @@ public class CoderMikesGrocery {
 	System.out.println("The highest priced item you bought was $" + findMax(price));
 	System.out.println("The lowest priced item you bought was $" + findMin(price));
 	}
-	
+	}
 	
 	public static double findAverage(ArrayList<Double> price) {
 		double average = 0;
